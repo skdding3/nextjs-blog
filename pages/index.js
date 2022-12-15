@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css';
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,8 +12,13 @@ export default function Home() {
       </Head>
 
       <main>
+        {/*<img src="/images/profiles.jpeg" alt="sunki" width={340} height={240}/>*/}
+        <Image src="/images/profiles.jpeg" alt="sunki" width={340} height={240}/>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Read this Post <Link href="/posts/first-post">첫번째 포스팅</Link>
+        </h1>
+        <h1 className={styles.title}>
+          Read this Post <a href="/posts/first-post">첫번째 포스팅 a태그</a>
         </h1>
 
         <p className={styles.description}>
@@ -56,10 +63,9 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
         </a>
       </footer>
-
+      <Image src="/images/profiles.jpeg" alt="sunki" width={340} height={240}/>
       <style jsx>{`
         main {
           padding: 5rem 0;
