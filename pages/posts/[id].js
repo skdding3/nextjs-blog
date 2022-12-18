@@ -1,24 +1,35 @@
 import Head from "next/head";
 import Layout from "../../components/Layout";
-import { getAllPostIds } from '../../lib/posts';
+import { getAllPostIds, getPostData } from '../../lib/posts';
 
 
 // 경로에는 getAllPostIds()에서 반환한 알려진 경로 배열이 포함됩니다.
 export async function getStaticPaths() {
     const paths = getAllPostIds();
     return {
-        paths,
+        paths, // path 배열
         fallback: false,
     };
 }
 
-export default function Post() {
+export async function getStaticProps({ params }) {
+    const postData = getPostData(params.id);
+    return {
+        props: {
+            postData,
+        },
+    };
+}
+
+
+export default function Post({postData}) {
     return (
         <Layout>
-        <Head>
-            <title>첫번째 포스트</title>
-        </Head>
-        <div>첫번째 포스트</div>
+            {postData.title}
+            <br />
+            {postData.id}
+            <br />
+            {postData.data}
         </Layout>
     )
 }
