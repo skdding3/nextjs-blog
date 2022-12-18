@@ -2,6 +2,8 @@ import Head from "next/head";
 import Layout from "../../components/Layout";
 import { getAllPostIds } from '../../lib/posts';
 
+
+// 경로에는 getAllPostIds()에서 반환한 알려진 경로 배열이 포함됩니다.
 export async function getStaticPaths() {
     const paths = getAllPostIds();
     return {
