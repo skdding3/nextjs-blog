@@ -9,6 +9,7 @@ export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
     return (
+        <div className="bg-pink-100">
         <div className={styles.container}>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
@@ -64,6 +65,7 @@ export default function Layout({ children, home }) {
                     <Link href="/">← Back to home</Link>
                 </div>
             )}
+        </div>
         </div>
     );
 }
